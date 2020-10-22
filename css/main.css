@@ -519,6 +519,10 @@ p {
 	align-items: center;
 	justify-content: center;
 	border-radius: 50%;
+	background-image: url(../img/arrow-up.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20px auto;
 	background-color: #999;
 	z-index: 300;
 	-webkit-transition: all 0.3s;
@@ -991,4 +995,14 @@ font-size: 12px;
 }
 .ns_checkbox-wrap .ns_checkbox {
 	white-space: nowrap;
+}
+.ns_descr-title {
+	padding-top: 10px;
+font-size: 28px;
+font-weight: 600;
+line-height: 36px;
+}
+.ns_about {
+	padding-top: 38px;
+	background-color: #f8f6f5;
 }
