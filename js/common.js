@@ -29,12 +29,12 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("ns_default") ){
 	});
 
 	$(".ns_nav a").click(function() {
-			$(".ns_nav").slideUp(200);
-			$(".sandwich").removeClass("active");
-		});
+		$(".ns_nav").slideUp(200);
+		$(".sandwich").removeClass("active");
+	});
 
 
-$("#fl_inp").change(function(){
+	$("#fl_inp").change(function(){
 		var filename = $(this).val().replace(/.*\\/, "");
 		$("#fl_nm").html(filename);
 	});
@@ -50,8 +50,8 @@ $("#fl_inp").change(function(){
 	//слайдер
 
 	$('.ns_slider-billbord').slick({
-		arrows: true,
-		dots: true,
+		arrows: false,
+		dots: false,
 		fade: true,
 		infinite: true,
 		slidesToShow: 1,
@@ -64,6 +64,110 @@ $("#fl_inp").change(function(){
 		infinite: true,
 		slidesToShow: 1,
 		slidesToScroll: 1
+	});
+
+	$('.ns_slider-for').slick({
+		arrows: false,
+		dots: false,
+		infinite: true,
+		slidesToShow: 1,
+		asNavFor: '.ns_slider-nav',
+		slidesToScroll: 1,
+
+	});
+
+	$('.ns_slider-nav').slick({
+		slidesToShow: 3,
+		vertical: true,
+		verticalSwiping: true,
+		slidesToScroll: 1,
+		asNavFor: '.ns_slider-for',
+		arrows: true,
+		dots: false,
+		focusOnSelect: true,
+		responsive: [
+		{
+			breakpoint: 992,
+			settings: {
+				vertical: false,
+				verticalSwiping: false,
+			}
+		},
+		{
+			breakpoint: 768,
+			settings: {
+				slidesToShow: 2,
+				vertical: false,
+				verticalSwiping: false,
+			}
+		}
+		]
+	});
+
+	$('.ns_slider-video').slick({
+		arrows: true,
+		dots: false,
+		infinite: true,
+		swipe: false,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		responsive: [
+		{
+			breakpoint: 480,
+			settings: {
+				arrows: false,
+				dots: true,
+			}
+		}
+		]
+	});
+
+	$('.ns_slider-portfolio').slick({
+		arrows: true,
+		dots: true,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+	});
+
+	$('.ns_slider-partners').slick({
+		arrows: true,
+		dots: false,
+		infinite: true,
+		slidesToShow: 5,
+		slidesToScroll: 1,
+		responsive: [
+		{
+			breakpoint: 993,
+			settings: {
+				slidesToShow: 4,
+			}
+		},
+		{
+			breakpoint: 768,
+			settings: {
+				slidesToShow: 3,
+			}
+		},
+		{
+			breakpoint: 480,
+			settings: {
+				slidesToShow: 2,
+			}
+		}
+		]
+	});
+
+	/*видео в слайдере*/
+	$('.ns_slider-video').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+		$('.slick-current iframe').attr('src', $('.slick-current iframe').attr('src'));
+		$('.slick-current .ns_slider-video__item').removeClass("active");
+	});
+
+	$('.ns_slider-video__item').click(function() {
+		$(this).addClass("active");
+
+
 	});
 
 	$('.ns_tabs-main li a').click(function(event) {
@@ -80,17 +184,22 @@ $("#fl_inp").change(function(){
 	//Документация: http://fancybox.net/howto
 	//<a class="fancybox"><img src="image.jpg" /></a>
 	//<a class="fancybox" data-fancybox-group="group"><img src="image.jpg" /></a>
-	$(".fancybox").fancybox();
+	$(".fancybox").fancybox({
+    helpers:  {
+      overlay : {
+        locked : false
+      }
+    }
+  });
 
-
-$(".ns_btn_top").click(function () {
+	$(".ns_btn_top").click(function () {
 		$("body, html").animate({
 			scrollTop: 0
 		}, 800);
 		return false;
 	});
 
-objectFitImages();
+	objectFitImages();
 
 });
 
