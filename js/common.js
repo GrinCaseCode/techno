@@ -108,7 +108,6 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("ns_default") ){
 		arrows: true,
 		dots: false,
 		infinite: true,
-		swipe: false,
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		responsive: [
